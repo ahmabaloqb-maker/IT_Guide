@@ -3,235 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>المشاريع - IT Guide | معرض مشاريع طلاب التقنية</title>
-    
-    <!-- SEO -->
-    <meta name="description" content="استعرض مشاريع طلاب التقنية حسب المستوى والتخصص. مشاريع مستوى أول، ثاني، ثالث، رابع، ومشاريع تخرج">
-    <meta name="keywords" content="مشاريع طلاب, مشاريع برمجية, مشاريع تخرج, مشاريع ويب, مشاريع جوال">
-    
-    <!-- CSS -->
+    <title>المشاريع - IT Guide</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/projects.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .projects-page { padding: 2rem 0; }
+        .page-header { text-align: center; margin-bottom: 2rem; }
+        .page-header h1 { font-size: 2.5rem; color: var(--dark); margin-bottom: 0.5rem; }
+        .filters-section { background: white; padding: 1.5rem; border-radius: 15px; margin-bottom: 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        .filter-group { display: flex; flex-wrap: wrap; gap: 2rem; margin-bottom: 1.5rem; }
+        .filter-category { flex: 1; min-width: 200px; }
+        .filter-category h4 { margin-bottom: 0.5rem; color: var(--gray); font-size: 0.9rem; }
+        .filter-options { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .filter-btn { background: var(--light); border: 1px solid #ddd; padding: 0.5rem 1rem; border-radius: 20px; cursor: pointer; transition: all 0.3s; }
+        .filter-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+        .search-box { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; }
+        .search-box input { flex: 1; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+        .project-item { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,0.05); border: 1px solid #eee; }
+        .project-header { padding: 1rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; display: flex; justify-content: space-between; align-items: center; }
+        .project-body { padding: 1rem; }
+        .pagination { display: flex; justify-content: center; gap: 1rem; align-items: center; }
+        .no-results { text-align: center; padding: 3rem; color: var(--gray); }
+        .view-project-btn { background: var(--primary); color: white; padding: 0.5rem 1rem; border-radius: 8px; text-decoration: none; display: inline-block; }
+        .filters-stats { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+    </style>
 </head>
 <body>
-    <!-- الهيدر -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <a href="index.html">
-                        <i class="fas fa-code"></i>
-                        <span>IT Guide</span>
-                    </a>
-                </div>
-                
+                <div class="logo"><a href="index.html"><i class="fas fa-code"></i><span>IT Guide</span></a></div>
                 <ul class="nav-links">
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="projects.html" class="active">المشاريع</a></li>
                     <li><a href="upload.html">رفع مشروع</a></li>
                     <li><a href="about.html">عن المنصة</a></li>
                 </ul>
-                
-                <button class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
             </nav>
         </div>
     </header>
 
-    <!-- محتوى الصفحة -->
     <main class="projects-page">
-        <!-- ترويسة الصفحة -->
-        <section class="page-header">
-            <div class="container">
-                <h1><i class="fas fa-project-diagram"></i> معرض المشاريع</h1>
-                <p class="subtitle">استعرض مشاريع طلاب التقنية حسب تخصصك ومستواك</p>
-                
-                <!-- شريط البحث -->
-                <div class="search-container">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" placeholder="ابحث عن مشروع أو تقنية...">
-                        <button id="searchBtn" class="btn btn-primary">بحث</button>
-                    </div>
-                </div>
+        <div class="container">
+            <div class="page-header">
+                <h1><i class="fas fa-project-diagram"></i> جميع المشاريع</h1>
+                <p>استعرض مشاريع الطلاب</p>
             </div>
-        </section>
 
-        <!-- الفلاتر -->
-        <section class="filters-section">
-            <div class="container">
-                <div class="filters-container">
-                    <div class="filter-group">
-                        <h3><i class="fas fa-filter"></i> تصفية حسب:</h3>
-                        
-                        <!-- فلاتر المستوى -->
-                        <div class="filter-category">
-                            <h4>المستوى الدراسي</h4>
-                            <div class="filter-options" id="levelFilters">
-                                <button class="filter-btn active" data-filter="all">الكل</button>
-                                <button class="filter-btn" data-filter="1">مستوى أول</button>
-                                <button class="filter-btn" data-filter="2">مستوى ثاني</button>
-                                <button class="filter-btn" data-filter="3">مستوى ثالث</button>
-                                <button class="filter-btn" data-filter="4">مشاريع تخرج</button>
-                            </div>
-                        </div>
-                        
-                        <!-- فلاتر التخصص -->
-                        <div class="filter-category">
-                            <h4>التخصص</h4>
-                            <div class="filter-options" id="categoryFilters">
-                                <button class="filter-btn" data-category="all">الكل</button>
-                                <button class="filter-btn" data-category="web">برمجة الويب</button>
-                                <button class="filter-btn" data-category="mobile">تطبيقات الجوال</button>
-                                <button class="filter-btn" data-category="ai">الذكاء الاصطناعي</button>
-                                <button class="filter-btn" data-category="database">قواعد البيانات</button>
-                                <button class="filter-btn" data-category="network">الشبكات</button>
-                            </div>
-                        </div>
-                        
-                        <!-- فلاتر التقنيات -->
-                        <div class="filter-category">
-                            <h4>التقنيات</h4>
-                            <div class="filter-options" id="techFilters">
-                                <button class="filter-btn" data-tech="all">الكل</button>
-                                <button class="filter-btn" data-tech="html">HTML</button>
-                                <button class="filter-btn" data-tech="css">CSS</button>
-                                <button class="filter-btn" data-tech="js">JavaScript</button>
-                                <button class="filter-btn" data-tech="python">Python</button>
-                                <button class="filter-btn" data-tech="php">PHP</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- إحصائيات -->
-                    <div class="filters-stats">
-                        <div class="stat">
-                            <span id="totalProjects">0</span>
-                            <small>إجمالي المشاريع</small>
-                        </div>
-                        <div class="stat">
-                            <span id="filteredProjects">0</span>
-                            <small>مطابقة للبحث</small>
-                        </div>
-                        <button id="clearFilters" class="btn btn-secondary">
-                            <i class="fas fa-times"></i> مسح الفلاتر
-                        </button>
-                    </div>
+            <div class="filters-section">
+                <div class="search-box">
+                    <input type="text" id="searchInput" placeholder="ابحث عن مشروع...">
+                    <button id="searchBtn" class="btn btn-primary">بحث</button>
                 </div>
-            </div>
-        </section>
 
-        <!-- عرض المشاريع -->
-        <section class="projects-display">
-            <div class="container">
-                <!-- ترتيب النتائج -->
-                <div class="sort-options">
-                    <span>ترتيب حسب:</span>
-                    <select id="sortSelect">
-                        <option value="newest">الأحدث</option>
-                        <option value="popular">الأكثر شعبية</option>
-                        <option value="downloads">الأكثر تحميلاً</option>
-                        <option value="level">المستوى الدراسي</option>
-                    </select>
+                <div class="filter-group">
+                    <div class="filter-category">
+                        <h4>المستوى</h4>
+                        <div class="filter-options" id="levelFilters">
+                            <button class="filter-btn active" data-filter="all">الكل</button>
+                            <button class="filter-btn" data-filter="1">مستوى أول</button>
+                            <button class="filter-btn" data-filter="2">مستوى ثاني</button>
+                            <button class="filter-btn" data-filter="3">مستوى ثالث</button>
+                            <button class="filter-btn" data-filter="4">مشروع تخرج</button>
+                        </div>
+                    </div>
                 </div>
-                
-                <!-- شبكة المشاريع -->
-                <div class="projects-grid" id="projectsContainer">
-                    <!-- سيتم ملؤها بالجافاسكريبت -->
-                </div>
-                
-                <!-- رسالة عدم وجود نتائج -->
-                <div id="noResults" class="no-results" style="display: none;">
-                    <i class="fas fa-search"></i>
-                    <h3>لا توجد مشاريع تطابق بحثك</h3>
-                    <p>حاول البحث بكلمات مختلفة أو قم بتغيير الفلاتر</p>
-                    <button id="resetSearch" class="btn btn-primary">
-                        <i class="fas fa-redo"></i> إعادة تعيين البحث
-                    </button>
-                </div>
-                
-                <!-- أزرار التصفح -->
-                <div class="pagination">
-                    <button id="prevBtn" class="btn btn-secondary" disabled>
-                        <i class="fas fa-arrow-right"></i> السابق
-                    </button>
-                    <span id="pageInfo">الصفحة 1 من 1</span>
-                    <button id="nextBtn" class="btn btn-secondary" disabled>
-                        التالي <i class="fas fa-arrow-left"></i>
-                    </button>
-                </div>
-            </div>
-        </section>
 
-        <!-- قسم المساعدة -->
-        <section class="help-section">
-            <div class="container">
-                <h2><i class="fas fa-question-circle"></i> كيف تستفيد من المعرض؟</h2>
-                <div class="help-tips">
-                    <div class="tip">
-                        <i class="fas fa-search"></i>
-                        <h3>ابحث عن مشاريع مشابهة</h3>
-                        <p>استخدم شريط البحث للعثور على مشاريع تناسب تخصصك</p>
-                    </div>
-                    <div class="tip">
-                        <i class="fas fa-download"></i>
-                        <h3>حمّل وادرس الكود</h3>
-                        <p>تعلم من خلال دراسة كود المصدر للمشاريع الناجحة</p>
-                    </div>
-                    <div class="tip">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>احصل على أفكار جديدة</h3>
-                        <p>استلهم أفكاراً لمشاريعك المستقبلية</p>
-                    </div>
+                <div class="filters-stats">
+                    <span>عدد المشاريع: <strong id="projectCount">0</strong></span>
+                    <button id="clearFilters" class="btn btn-secondary">مسح الكل</button>
                 </div>
             </div>
-        </section>
+
+            <div id="projectsContainer" class="projects-grid"></div>
+            <div id="noResults" class="no-results" style="display:none;">
+                <i class="fas fa-search"></i>
+                <h3>لا توجد مشاريع</h3>
+                <p>كن أول من يرفع مشروعاً!</p>
+                <a href="upload.html" class="btn btn-primary">رفع مشروع</a>
+            </div>
+
+            <div class="pagination">
+                <button id="prevBtn" class="btn btn-secondary" disabled>السابق</button>
+                <span id="pageInfo">الصفحة 1</span>
+                <button id="nextBtn" class="btn btn-secondary" disabled>التالي</button>
+            </div>
+        </div>
     </main>
 
-    <!-- الفوتر -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-code"></i> IT Guide</h3>
-                    <p>منصة طلابية لمشاركة المشاريع التقنية والتعلم المشترك</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>المشاريع</h4>
-                    <ul>
-                        <li><a href="projects.html?level=1">مستوى أول</a></li>
-                        <li><a href="projects.html?level=2">مستوى ثاني</a></li>
-                        <li><a href="projects.html?level=3">مستوى ثالث</a></li>
-                        <li><a href="projects.html?level=4">مشاريع تخرج</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>روابط مهمة</h4>
-                    <ul>
-                        <li><a href="upload.html">كيفية الرفع</a></li>
-                        <li><a href="about.html">شروط الاستخدام</a></li>
-                        <li><a href="#contact">اتصل بنا</a></li>
-                        <li><a href="#faq">الأسئلة الشائعة</a></li>
-                    </ul>
-                </div>
+                <div class="footer-section"><h3>IT Guide</h3><p>منصة مشاريع الطلاب</p></div>
+                <div class="footer-section"><h4>روابط</h4><ul><li><a href="index.html">الرئيسية</a></li><li><a href="projects.html">المشاريع</a></li><li><a href="upload.html">رفع مشروع</a></li></ul></div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>© 2024 IT Guide - جميع الحقوق محفوظة</p>
-            </div>
+            <div class="footer-bottom"><p>© 2026 IT Guide</p></div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="js/data.js"></script>
     <script src="js/projects.js"></script>
-    <script src="js/main.js"></script>
 </body>
 </html>

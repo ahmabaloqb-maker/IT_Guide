@@ -4,20 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IT Guide - منصة مشاريع الطلاب</title>
-    
-    <!-- SEO -->
-    <meta name="description" content="منصة طلابية لمشاركة مشاريع طلاب الجامعات التقنية">
-    <meta name="keywords" content="مشاريع طلاب, مشاريع تخرج, برمجة, تقنية">
-    
-    <!-- CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- الهيدر -->
     <header>
         <div class="container">
             <nav>
@@ -27,127 +18,53 @@
                         <span>IT Guide</span>
                     </a>
                 </div>
-                
                 <ul class="nav-links">
                     <li><a href="index.html" class="active">الرئيسية</a></li>
                     <li><a href="projects.html">المشاريع</a></li>
                     <li><a href="upload.html">رفع مشروع</a></li>
                     <li><a href="about.html">عن المنصة</a></li>
                 </ul>
-                
-                <button class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
             </nav>
         </div>
     </header>
 
-    <!-- الهيرو -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1>مرحباً في <span class="highlight">IT Guide</span></h1>
                 <p class="subtitle">المنصة الأولى لمشاريع طلاب التقنية</p>
                 <p class="description">شارك مشاريعك، استفد من تجارب الآخرين، وابنِ معرض أعمالك التقني</p>
-                
                 <div class="cta-buttons">
-                    <a href="projects.html" class="btn btn-primary">
-                        <i class="fas fa-search"></i> تصفح المشاريع
-                    </a>
-                    <a href="upload.html" class="btn btn-secondary">
-                        <i class="fas fa-upload"></i> رفع مشروع
-                    </a>
+                    <a href="projects.html" class="btn btn-primary"><i class="fas fa-search"></i> تصفح المشاريع</a>
+                    <a href="upload.html" class="btn btn-secondary"><i class="fas fa-upload"></i> رفع مشروع</a>
                 </div>
             </div>
-            
             <div class="hero-stats">
-                <div class="stat">
-                    <i class="fas fa-project-diagram"></i>
-                    <h3></h3>
-                    <p>مشروع</p>
-                </div>
-                <div class="stat">
-                    <i class="fas fa-users"></i>
-                    <h3></h3>
-                    <p>طالب</p>
-                </div>
-                <div class="stat">
-                    <i class="fas fa-download"></i>
-                    <h3></h3>
-                    <p>تحميل</p>
-                </div>
+                <div class="stat"><i class="fas fa-project-diagram"></i><h3 id="statProjects">0</h3><p>مشروع</p></div>
+                <div class="stat"><i class="fas fa-users"></i><h3 id="statStudents">0</h3><p>طالب</p></div>
+                <div class="stat"><i class="fas fa-download"></i><h3 id="statDownloads">0</h3><p>تحميل</p></div>
             </div>
         </div>
     </section>
 
-    <!-- المشاريع المميزة -->
     <section class="featured-projects">
         <div class="container">
             <div class="section-header">
                 <h2>مشاريع مميزة</h2>
                 <a href="projects.html" class="view-all">عرض الكل <i class="fas fa-arrow-left"></i></a>
             </div>
-            
-            <div class="projects-grid" id="featuredProjects">
-                <!-- ستملأ بالجافاسكريبت -->
-            </div>
+            <div class="projects-grid" id="featuredProjects"></div>
         </div>
     </section>
 
-    <!-- المستويات الدراسية -->
-    <section class="levels">
-        <div class="container">
-            <h2 class="section-title">تصفح حسب المستوى الدراسي</h2>
-            
-            <div class="levels-grid">
-                <a href="projects.html?level=1" class="level-card level-1">
-                    <div class="level-icon">
-                        <i class="fas fa-seedling"></i>
-                    </div>
-                    <h3>مستوى أول</h3>
-                    <p>مشاريع للمبتدئين</p>
-                    <span class="count">45 مشروع</span>
-                </a>
-                
-                <a href="projects.html?level=2" class="level-card level-2">
-                    <div class="level-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3>مستوى ثاني</h3>
-                    <p>مشاريع متوسطة</p>
-                    <span class="count">38 مشروع</span>
-                </a>
-                
-                <a href="projects.html?level=3" class="level-card level-3">
-                    <div class="level-icon">
-                        <i class="fas fa-tree"></i>
-                    </div>
-                    <h3>مستوى ثالث</h3>
-                    <p>مشاريع متقدمة</p>
-                    <span class="count">32 مشروع</span>
-                </a>
-                
-                <a href="projects.html?level=4" class="level-card level-4">
-                    <div class="level-icon">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    <h3>مشاريع تخرج</h3>
-                    <p>مشاريع احترافية</p>
-                    <span class="count">15 مشروع</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- الفوتر -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
                     <h3><i class="fas fa-code"></i> IT Guide</h3>
-                    <p>منصة طلابية لمشاركة المشاريع التقنية والتعلم المشترك</p>
+                    <p>منصة طلابية لمشاركة المشاريع التقنية</p>
                 </div>
-                
                 <div class="footer-section">
                     <h4>روابط سريعة</h4>
                     <ul>
@@ -157,24 +74,11 @@
                         <li><a href="about.html">عن المنصة</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-section">
-                    <h4>تواصل معنا</h4>
-                    <ul>
-                        <li><a href="#"><i class="fas fa-envelope"></i> البريد</a></li>
-                        <li><a href="#"><i class="fab fa-twitter"></i> تويتر</a></li>
-                        <li><a href="#"><i class="fab fa-github"></i> GitHub</a></li>
-                    </ul>
-                </div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>© 2026 IT Guide - جميع الحقوق محفوظة</p>
-            </div>
+            <div class="footer-bottom"><p>© 2026 IT Guide - جميع الحقوق محفوظة</p></div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="js/data.js"></script>
     <script src="js/main.js"></script>
 </body>

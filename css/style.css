@@ -74,8 +74,6 @@ nav {
     text-decoration: none;
     color: var(--dark);
     font-weight: 500;
-    padding: 0.5rem 0;
-    position: relative;
     transition: color 0.3s;
 }
 
@@ -84,22 +82,11 @@ nav {
     color: var(--primary);
 }
 
-.nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--primary);
-}
-
 .menu-toggle {
     display: none;
     background: none;
     border: none;
     font-size: 1.5rem;
-    color: var(--dark);
     cursor: pointer;
 }
 
@@ -180,7 +167,7 @@ nav {
     background: rgba(255,255,255,0.1);
 }
 
-/* ===== إحصائيات الهيرو ===== */
+/* ===== إحصائيات ===== */
 .hero-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -207,7 +194,7 @@ nav {
     margin-bottom: 0.5rem;
 }
 
-/* ===== المشاريع المميزة ===== */
+/* ===== المشاريع ===== */
 .featured-projects {
     padding: 4rem 0;
     background: var(--white);
@@ -245,46 +232,42 @@ nav {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.3s;
     border: 1px solid #eee;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .project-image {
     height: 180px;
-    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    color: var(--primary);
+    color: white;
 }
 
 .project-content {
     padding: 1.5rem;
 }
 
-.project-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: start;
-    margin-bottom: 1rem;
-}
-
 .project-title {
     font-size: 1.3rem;
+    margin-bottom: 0.5rem;
     color: var(--dark);
 }
 
 .project-level {
+    display: inline-block;
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 .level-1 { background: #e3f2fd; color: #1976d2; }
@@ -328,74 +311,6 @@ nav {
     font-size: 0.9rem;
 }
 
-/* ===== المستويات ===== */
-.levels {
-    padding: 4rem 0;
-    background: var(--light);
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 3rem;
-    color: var(--dark);
-}
-
-.levels-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-}
-
-.level-card {
-    background: var(--white);
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    text-decoration: none;
-    color: var(--dark);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: all 0.3s;
-    border-top: 4px solid transparent;
-}
-
-.level-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-}
-
-.level-1 { border-color: #4CAF50; }
-.level-2 { border-color: #2196F3; }
-.level-3 { border-color: #FF9800; }
-.level-4 { border-color: #F44336; }
-
-.level-icon {
-    width: 60px;
-    height: 60px;
-    background: var(--primary);
-    color: var(--white);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.5rem;
-    margin: 0 auto 1rem;
-}
-
-.level-card h3 {
-    margin-bottom: 0.5rem;
-    color: var(--dark);
-}
-
-.count {
-    display: inline-block;
-    margin-top: 0.5rem;
-    padding: 5px 15px;
-    background: var(--light);
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
-
 /* ===== الفوتر ===== */
 footer {
     background: var(--dark);
@@ -414,7 +329,6 @@ footer {
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: var(--white);
 }
 
 .footer-section ul {
@@ -428,11 +342,10 @@ footer {
 .footer-section a {
     color: #ccc;
     text-decoration: none;
-    transition: color 0.3s;
 }
 
 .footer-section a:hover {
-    color: var(--white);
+    color: white;
 }
 
 .footer-bottom {
@@ -440,29 +353,4 @@ footer {
     padding-top: 2rem;
     border-top: 1px solid rgba(255,255,255,0.1);
     color: #aaa;
-}
-/* رسائل الصفحات */
-.message-toast {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: white;
-    padding: 1rem 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    z-index: 10000;
-    animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-    from { transform: translateX(-100%); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideOut {
-    from { transform: translateX(0); opacity: 1; }
-    to { transform: translateX(-100%); opacity: 0; }
 }

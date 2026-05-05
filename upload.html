@@ -3,395 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رفع مشروع - IT Guide | شارك مشروعك مع المجتمع</title>
-    
-    <!-- SEO -->
-    <meta name="description" content="شارك مشروعك التقني مع طلاب الجامعات. رفع مشاريع برمجية، مشاريع تخرج، مشاريع ويب وتطبيقات جوال">
-    <meta name="keywords" content="رفع مشروع, مشاركة مشاريع, مشاريع طلاب, مشاريع برمجية, رفع ملفات">
-    
-    <!-- CSS -->
+    <title>رفع مشروع - IT Guide</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/upload.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .upload-page { padding: 2rem 0; }
+        .page-header { text-align: center; margin-bottom: 2rem; }
+        .upload-form { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); max-width: 800px; margin: 0 auto; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: 600; }
+        .form-group input, .form-group textarea, .form-group select { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
+        .tech-selector { border: 1px solid #ddd; border-radius: 8px; padding: 1rem; }
+        .selected-techs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; min-height: 45px; }
+        .tech-tag { background: #f0f4ff; color: var(--primary); padding: 5px 12px; border-radius: 20px; display: inline-flex; align-items: center; gap: 5px; }
+        .tech-tag .remove { cursor: pointer; color: #999; }
+        .tech-list { display: flex; flex-wrap: wrap; gap: 0.5rem; max-height: 150px; overflow-y: auto; }
+        .tech-option { display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem; background: var(--light); border-radius: 8px; cursor: pointer; }
+        .form-actions { display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #eee; }
+        .alert { padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+        .alert-success { background: #d4edda; color: #155724; }
+        .alert-error { background: #f8d7da; color: #721c24; }
+        .alert-info { background: #d1ecf1; color: #0c5460; }
+    </style>
 </head>
 <body>
-    <!-- الهيدر -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <a href="index.html">
-                        <i class="fas fa-code"></i>
-                        <span>IT Guide</span>
-                    </a>
-                </div>
-                
+                <div class="logo"><a href="index.html"><i class="fas fa-code"></i><span>IT Guide</span></a></div>
                 <ul class="nav-links">
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="projects.html">المشاريع</a></li>
                     <li><a href="upload.html" class="active">رفع مشروع</a></li>
                     <li><a href="about.html">عن المنصة</a></li>
                 </ul>
-                
-                <button class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
             </nav>
         </div>
     </header>
 
-    <!-- محتوى الصفحة -->
     <main class="upload-page">
-        <!-- ترويسة الصفحة -->
-        <section class="page-header">
-            <div class="container">
+        <div class="container">
+            <div class="page-header">
                 <h1><i class="fas fa-cloud-upload-alt"></i> رفع مشروع جديد</h1>
-                <p class="subtitle">شارك مشروعك مع مجتمع طلاب التقنية وساعد الآخرين في التعلم</p>
-                
-                <!-- خطوات الرفع -->
-                <div class="upload-steps">
-                    <div class="step active">
-                        <div class="step-number">1</div>
-                        <span>معلومات المشروع</span>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">2</div>
-                        <span>رفع الملفات</span>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">3</div>
-                        <span>المراجعة</span>
-                    </div>
-                    <div class="step">
-                        <div class="step-number">4</div>
-                        <span>النشر</span>
-                    </div>
-                </div>
+                <p>شارك مشروعك مع مجتمع الطلاب</p>
             </div>
-        </section>
 
-        <!-- نموذج الرفع -->
-        <section class="upload-form-section">
-            <div class="container">
-                <form id="projectUploadForm" class="upload-form">
-                    <!-- معلومات المشروع -->
-                    <div class="form-section" id="projectInfoSection">
-                        <h2><i class="fas fa-info-circle"></i> معلومات المشروع</h2>
-                        
-                        <div class="form-grid">
-                            <!-- اسم المشروع -->
-                            <div class="form-group full-width">
-                                <label for="projectTitle">
-                                    <i class="fas fa-heading"></i> اسم المشروع
-                                    <span class="required">*</span>
-                                </label>
-                                <input type="text" id="projectTitle" required 
-                                       placeholder="مثال: موقع متجر إلكتروني">
-                                <small class="helper-text">اختر اسماً واضحاً ووصفياً لمشروعك</small>
+            <div class="upload-form">
+                <form id="uploadForm">
+                    <div class="form-group">
+                        <label>اسم المشروع <span style="color:red;">*</span></label>
+                        <input type="text" id="projectTitle" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>وصف المشروع <span style="color:red;">*</span></label>
+                        <textarea id="projectDescription" rows="4" required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label>المستوى الدراسي <span style="color:red;">*</span></label>
+                        <select id="projectLevel" required>
+                            <option value="">اختر المستوى</option>
+                            <option value="1">مستوى أول</option>
+                            <option value="2">مستوى ثاني</option>
+                            <option value="3">مستوى ثالث</option>
+                            <option value="4">مشروع تخرج</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>التخصص <span style="color:red;">*</span></label>
+                        <select id="projectCategory" required>
+                            <option value="">اختر التخصص</option>
+                            <option value="web">برمجة الويب</option>
+                            <option value="mobile">تطبيقات الجوال</option>
+                            <option value="ai">الذكاء الاصطناعي</option>
+                            <option value="database">قواعد البيانات</option>
+                            <option value="network">الشبكات</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>التقنيات المستخدمة <span style="color:red;">*</span></label>
+                        <div class="tech-selector">
+                            <div class="selected-techs" id="selectedTechs"></div>
+                            <div class="tech-list" id="techList">
+                                <label class="tech-option"><input type="checkbox" value="HTML"> HTML</label>
+                                <label class="tech-option"><input type="checkbox" value="CSS"> CSS</label>
+                                <label class="tech-option"><input type="checkbox" value="JavaScript"> JavaScript</label>
+                                <label class="tech-option"><input type="checkbox" value="Python"> Python</label>
+                                <label class="tech-option"><input type="checkbox" value="PHP"> PHP</label>
+                                <label class="tech-option"><input type="checkbox" value="React"> React</label>
+                                <label class="tech-option"><input type="checkbox" value="Node.js"> Node.js</label>
+                                <label class="tech-option"><input type="checkbox" value="MySQL"> MySQL</label>
                             </div>
-                            
-                            <!-- وصف المشروع -->
-                            <div class="form-group full-width">
-                                <label for="projectDescription">
-                                    <i class="fas fa-align-left"></i> وصف المشروع
-                                    <span class="required">*</span>
-                                </label>
-                                <textarea id="projectDescription" rows="5" required
-                                          placeholder="صف مشروعك بالتفصيل، ماذا يفعل؟ ما هي مميزاته؟"></textarea>
-                                <small class="helper-text">اكتب وصفاً مفصلاً يساعد الآخرين على فهم مشروعك</small>
-                            </div>
-                            
-                            <!-- المستوى الدراسي -->
-                            <div class="form-group">
-                                <label for="projectLevel">
-                                    <i class="fas fa-graduation-cap"></i> المستوى الدراسي
-                                    <span class="required">*</span>
-                                </label>
-                                <select id="projectLevel" required>
-                                    <option value="">اختر المستوى</option>
-                                    <option value="1">مستوى أول</option>
-                                    <option value="2">مستوى ثاني</option>
-                                    <option value="3">مستوى ثالث</option>
-                                    <option value="4">مستوى رابع</option>
-                                    <option value="graduation">مشروع تخرج</option>
-                                </select>
-                            </div>
-                            
-                            <!-- التخصص -->
-                            <div class="form-group">
-                                <label for="projectCategory">
-                                    <i class="fas fa-tags"></i> التخصص
-                                    <span class="required">*</span>
-                                </label>
-                                <select id="projectCategory" required>
-                                    <option value="">اختر التخصص</option>
-                                    <option value="web">برمجة الويب</option>
-                                    <option value="mobile">تطبيقات الجوال</option>
-                                    <option value="ai">الذكاء الاصطناعي</option>
-                                    <option value="database">قواعد البيانات</option>
-                                    <option value="network">الشبكات</option>
-                                    <option value="other">آخر</option>
-                                </select>
-                            </div>
-                            
-                            <!-- التقنيات المستخدمة -->
-                            <div class="form-group full-width">
-                                <label>
-                                    <i class="fas fa-code"></i> التقنيات المستخدمة
-                                    <span class="required">*</span>
-                                </label>
-                                <div class="tech-selector">
-                                    <div class="selected-techs" id="selectedTechs">
-                                        <!-- التقنيات المختارة تظهر هنا -->
-                                    </div>
-                                    <div class="tech-options">
-                                        <input type="text" id="techSearch" placeholder="ابحث عن تقنية...">
-                                        <div class="tech-list">
-                                            <label class="tech-option">
-                                                <input type="checkbox" value="HTML">
-                                                <span>HTML</span>
-                                            </label>
-                                            <label class="tech-option">
-                                                <input type="checkbox" value="CSS">
-                                                <span>CSS</span>
-                                            </label>
-                                            <label class="tech-option">
-                                                <input type="checkbox" value="JavaScript">
-                                                <span>JavaScript</span>
-                                            </label>
-                                            <label class="tech-option">
-                                                <input type="checkbox" value="Python">
-                                                <span>Python</span>
-                                            </label>
-                                            <label class="tech-option">
-                                                <input type="checkbox" value="Java">
-                                                <span>Java</span>
-                                            </label>
-                                            <label class="tech-option">
-                                                <input type="checkbox" value="PHP">
-                                                <span>PHP</span>
-                                            </label>
-                                            <label class="tech-option">
-                                                <input type="checkbox" value="React">
-                                                <span>React</span>
-                                            </label>
-                                            <label class="tech-option">
-                                                <input type="checkbox" value="Vue.js">
-                                                <span>Vue.js</span>
-                                            </label>
-                                            <label class="tech-option">
-                                                <input type="checkbox" value="Node.js">
-                                                <span>Node.js</span>
-                                            </label>
-                                            <label class="tech-option">
-                                                <input type="checkbox" value="MySQL">
-                                                <span>MySQL</span>
-                                            </label>
-                                            <label class="tech-option">
-                                                <input type="checkbox" value="MongoDB">
-                                                <span>MongoDB</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <small class="helper-text">اختر جميع التقنيات التي استخدمتها في المشروع</small>
-                            </div>
-                            
-                            <!-- رابط المشروع الحي (اختياري) -->
-                            <div class="form-group">
-                                <label for="projectURL">
-                                    <i class="fas fa-link"></i> رابط المشروع الحي (اختياري)
-                                </label>
-                                <input type="url" id="projectURL" 
-                                       placeholder="https://example.com">
-                            </div>
-                            
-                            <!-- رابط GitHub (اختياري) -->
-                            <div class="form-group">
-                                <label for="githubURL">
-                                    <i class="fab fa-github"></i> رابط GitHub (اختياري)
-                                </label>
-                                <input type="url" id="githubURL" 
-                                       placeholder="https://github.com/username/project">
-                            </div>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-secondary" onclick="resetForm()">
-                                <i class="fas fa-redo"></i> إعادة تعيين
-                            </button>
-                            <button type="button" class="btn btn-primary" onclick="nextStep()">
-                                التالي <i class="fas fa-arrow-left"></i>
-                            </button>
                         </div>
                     </div>
-                    
-                    <!-- رفع الملفات -->
-                    <div class="form-section" id="fileUploadSection" style="display: none;">
-                        <h2><i class="fas fa-file-upload"></i> رفع الملفات</h2>
-                        
-                        <div class="upload-zone" id="uploadZone">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <h3>اسحب وأفلت الملفات هنا</h3>
-                            <p>أو انقر لاختيار الملفات</p>
-                            <input type="file" id="fileInput" multiple style="display: none;">
-                            <button type="button" class="btn btn-secondary" onclick="document.getElementById('fileInput').click()">
-                                <i class="fas fa-folder-open"></i> اختر الملفات
-                            </button>
-                            <small class="helper-text">الحد الأقصى: 10 ملفات، 50 ميجابايت لكل ملف</small>
-                        </div>
-                        
-                        <!-- قائمة الملفات المرفوعة -->
-                        <div class="uploaded-files" id="uploadedFiles">
-                            <h4>الملفات المرفوعة:</h4>
-                            <div class="files-list" id="filesList">
-                                <!-- الملفات المرفوعة تظهر هنا -->
-                            </div>
-                        </div>
-                        
-                        <!-- تعليمات التنسيق -->
-                        <div class="format-instructions">
-                            <h4><i class="fas fa-info-circle"></i> تعليمات التنسيق:</h4>
-                            <ul>
-                                <li>يجب أن يحتوي المشروع على ملف <code>README.md</code> يشرح كيفية التشغيل</li>
-                                <li>يفضل ضغط المشروع في ملف <code>.zip</code> أو <code>.rar</code></li>
-                                <li>تأكد من إزالة أي بيانات حساسة أو كلمات مرور</li>
-                                <li>أضف صوراً توضيحية للمشروع إذا أمكن</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep()">
-                                <i class="fas fa-arrow-right"></i> السابق
-                            </button>
-                            <button type="button" class="btn btn-primary" onclick="nextStep()">
-                                التالي <i class="fas fa-arrow-left"></i>
-                            </button>
-                        </div>
+
+                    <div class="form-group">
+                        <label>رابط المشروع (اختياري)</label>
+                        <input type="url" id="projectURL" placeholder="https://...">
                     </div>
-                    
-                    <!-- المراجعة -->
-                    <div class="form-section" id="reviewSection" style="display: none;">
-                        <h2><i class="fas fa-check-circle"></i> مراجعة المعلومات</h2>
-                        
-                        <div class="review-summary">
-                            <div class="review-item">
-                                <h4>معلومات المشروع:</h4>
-                                <div id="reviewProjectInfo">
-                                    <!-- معلومات المشروع تعرض هنا -->
-                                </div>
-                            </div>
-                            
-                            <div class="review-item">
-                                <h4>الملفات المرفوعة:</h4>
-                                <div id="reviewFiles">
-                                    <!-- الملفات تعرض هنا -->
-                                </div>
-                            </div>
-                            
-                            <div class="review-item">
-                                <h4>شروط النشر:</h4>
-                                <div class="terms-agreement">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" id="agreeTerms" required>
-                                        <span>أوافق على <a href="#" class="terms-link">شروط الاستخدام</a> و <a href="#" class="terms-link">سياسة الخصوصية</a></span>
-                                    </label>
-                                    <br>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" id="agreeLicense" required>
-                                        <span>أوافق على نشر المشروع تحت رخصة <a href="#" class="terms-link">MIT</a></span>
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-secondary" onclick="prevStep()">
-                                <i class="fas fa-arrow-right"></i> السابق
-                            </button>
-                            <button type="submit" class="btn btn-success">
-                                <i class="fas fa-paper-plane"></i> نشر المشروع
-                            </button>
-                        </div>
+
+                    <div class="form-group">
+                        <label>رابط GitHub (اختياري)</label>
+                        <input type="url" id="githubURL" placeholder="https://github.com/...">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="button" class="btn btn-secondary" onclick="resetForm()">إعادة تعيين</button>
+                        <button type="submit" class="btn btn-primary">نشر المشروع</button>
                     </div>
                 </form>
             </div>
-        </section>
-
-        <!-- نصائح للرفع -->
-        <section class="upload-tips">
-            <div class="container">
-                <h2><i class="fas fa-lightbulb"></i> نصائح لرفع مشروع ناجح</h2>
-                
-                <div class="tips-grid">
-                    <div class="tip-card">
-                        <i class="fas fa-file-alt"></i>
-                        <h3>اكتب وصفاً واضحاً</h3>
-                        <p>اشرح مشروعك بوضوح، ما الذي يفعله، وكيف يعمل، ولماذا قمت ببنائه</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <i class="fas fa-code"></i>
-                        <h3>نظم كودك</h3>
-                        <p>تأكد من أن الكود منظم ومعلق عليه بشكل جيد ليسهل على الآخرين فهمه</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <i class="fas fa-images"></i>
-                        <h3>أضف صوراً</h3>
-                        <p>أرفق صوراً أو لقطات شاشة توضح واجهة المشروع وطريقة عمله</p>
-                    </div>
-                    
-                    <div class="tip-card">
-                        <i class="fas fa-book"></i>
-                        <h3>اكتب ملف README</h3>
-                        <p>أضف ملف README.md يشرح كيفية تشغيل المشروع والمتطلبات</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <!-- الفوتر -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-code"></i> IT Guide</h3>
-                    <p>منصة طلابية لمشاركة المشاريع التقنية والتعلم المشترك</p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>مساعدة</h4>
-                    <ul>
-                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
-                        <li><a href="guidelines.html">إرشادات الرفع</a></li>
-                        <li><a href="contact.html">اتصل بنا</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>معلومات قانونية</h4>
-                    <ul>
-                        <li><a href="terms.html">شروط الاستخدام</a></li>
-                        <li><a href="privacy.html">سياسة الخصوصية</a></li>
-                        <li><a href="license.html">الرخص</a></li>
-                    </ul>
-                </div>
+                <div class="footer-section"><h3>IT Guide</h3><p>منصة مشاريع الطلاب</p></div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>© 2024 IT Guide - جميع الحقوق محفوظة</p>
-            </div>
+            <div class="footer-bottom"><p>© 2026 IT Guide</p></div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="js/data.js"></script>
     <script src="js/upload.js"></script>
-    <script src="js/main.js"></script>
 </body>
 </html>

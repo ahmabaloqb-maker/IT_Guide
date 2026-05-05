@@ -3,412 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عن المنصة - IT Guide | من نحن ورؤيتنا</title>
-    
-    <!-- SEO -->
-    <meta name="description" content="تعرف على منصة IT Guide، رؤيتنا، رسالتنا، فريق العمل بقيادة أحمد">
-    <meta name="keywords" content="IT Guide, عن المنصة, فريق العمل, أحمد, مشاريع طلابية">
-    
-    <!-- CSS -->
+    <title>عن المنصة - IT Guide</title>
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-page { padding: 2rem 0; }
+        .about-header { text-align: center; margin-bottom: 3rem; }
+        .about-header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .about-card { background: white; border-radius: 20px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 5px 20px rgba(0,0,0,0.05); }
+        .founder { display: flex; gap: 2rem; flex-wrap: wrap; align-items: center; }
+        .founder-avatar { width: 150px; height: 150px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: white; }
+        .founder-info { flex: 1; }
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .value-card { text-align: center; padding: 1.5rem; background: white; border-radius: 15px; }
+        .value-card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 1rem; }
+        .contact-form { max-width: 600px; margin: 0 auto; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 0.75rem; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 1rem; }
+        .faq-item { margin-bottom: 1rem; border: 1px solid #eee; border-radius: 10px; overflow: hidden; }
+        .faq-question { width: 100%; padding: 1rem; background: var(--light); border: none; text-align: right; font-weight: bold; cursor: pointer; display: flex; justify-content: space-between; }
+        .faq-answer { padding: 0 1rem; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-answer.active { padding: 1rem; max-height: 200px; }
+    </style>
 </head>
 <body>
-    <!-- الهيدر -->
     <header>
         <div class="container">
             <nav>
-                <div class="logo">
-                    <a href="index.html">
-                        <i class="fas fa-code"></i>
-                        <span>IT Guide</span>
-                    </a>
-                </div>
-                
+                <div class="logo"><a href="index.html"><i class="fas fa-code"></i><span>IT Guide</span></a></div>
                 <ul class="nav-links">
                     <li><a href="index.html">الرئيسية</a></li>
                     <li><a href="projects.html">المشاريع</a></li>
                     <li><a href="upload.html">رفع مشروع</a></li>
                     <li><a href="about.html" class="active">عن المنصة</a></li>
                 </ul>
-                
-                <button class="menu-toggle">
-                    <i class="fas fa-bars"></i>
-                </button>
+                <button class="menu-toggle"><i class="fas fa-bars"></i></button>
             </nav>
         </div>
     </header>
 
-    <!-- محتوى الصفحة -->
     <main class="about-page">
-        <!-- الهيرو -->
-        <section class="about-hero">
-            <div class="container">
+        <div class="container">
+            <div class="about-header">
                 <h1><i class="fas fa-info-circle"></i> عن منصة IT Guide</h1>
-                <p class="subtitle">نحو مجتمع تعليمي تقني متميز</p>
+                <p>نحو مجتمع تعليمي تقني متميز</p>
             </div>
-        </section>
 
-        <!-- نبذة عن المنصة -->
-        <section class="about-intro">
-            <div class="container">
-                <div class="intro-content">
-                    <div class="intro-text">
-                        <h2>مرحباً بكم في IT Guide</h2>
-                        <p>
-                            <strong>IT Guide</strong> هي منصة طلابية أنشأها <strong>أحمد</strong> بهدف إنشاء مجتمع تعليمي 
-                            تقني يتيح للطلاب مشاركة مشاريعهم، التعلم من تجارب الآخرين، وبناء معرض أعمالهم التقني.
-                        </p>
-                        <p>
-                            نؤمن بأن أفضل طريقة للتعلم هي من خلال الممارسة والمشاركة، لذلك وفرنا هذه المنصة 
-                            لتكون مساحة آمنة وإبداعية لطلاب الجامعات والتقنية.
-                        </p>
-                    </div>
-                    <div class="intro-stats">
-                        <div class="stat">
-                            <i class="fas fa-rocket"></i>
-                            <h3>نبدأ بالبساطة</h3>
-                            <p>مشاريع للمستوى الأول</p>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-users"></i>
-                            <h3>نتعلم معاً</h3>
-                            <p>مجتمع تعاوني</p>
-                        </div>
-                        <div class="stat">
-                            <i class="fas fa-graduation-cap"></i>
-                            <h3>نصل للاحترافية</h3>
-                            <p>مشاريع التخرج</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="about-card">
+                <h2>مرحباً بكم في IT Guide</h2>
+                <p>IT Guide هي منصة طلابية أنشأها <strong>أحمد محمد العقاب</strong> بهدف إنشاء مجتمع تعليمي تقني يتيح للطلاب مشاركة مشاريعهم، التعلم من تجارب الآخرين، وبناء معرض أعمالهم التقني.</p>
+                <p style="margin-top: 1rem;">نؤمن بأن أفضل طريقة للتعلم هي من خلال الممارسة والمشاركة، لذلك وفرنا هذه المنصة لتكون مساحة آمنة وإبداعية لطلاب الجامعات والتقنية.</p>
             </div>
-        </section>
 
-        <!-- رؤيتنا ورسالتنا -->
-        <section class="vision-mission">
-            <div class="container">
-                <div class="vm-grid">
-                    <div class="vm-card vision">
-                        <div class="vm-icon">
-                            <i class="fas fa-eye"></i>
-                        </div>
-                        <h3>رؤيتنا</h3>
-                        <p>
-                            أن نكون المنصة الرائدة في العالم العربي لدعم طلاب التقنية وتمكينهم من خلال 
-                            توفير بيئة تعليمية تفاعلية تجمع بين النظرية والتطبيق العملي.
-                        </p>
-                    </div>
-                    
-                    <div class="vm-card mission">
-                        <div class="vm-icon">
-                            <i class="fas fa-bullseye"></i>
-                        </div>
-                        <h3>رسالتنا</h3>
-                        <p>
-                            تمكين طلاب التقنية من خلال توفير منصة لمشاركة المشاريع، تبادل الخبرات، 
-                            والتعلم المشترك لبناء جيل متمكن تقنياً وقادر على الإبداع والابتكار.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- مؤسس المنصة -->
-        <section class="founder-section">
-            <div class="container">
-                <h2 class="section-title">مؤسس المنصة</h2>
-                
-                <div class="founder-card">
+            <div class="about-card">
+                <h2 style="margin-bottom: 1.5rem;">👤 مؤسس المنصة</h2>
+                <div class="founder">
                     <div class="founder-avatar">
-                       <div class="avatar-circle">
-    <img src="assets/images/ahmed.jpg" alt="أحمد - مؤسس المنصة" 
-         onerror="this.style.display='none'; this.parentElement.innerHTML='<span>أ</span>';">
-</div>
+                        <i class="fas fa-user"></i>
                     </div>
-                    
                     <div class="founder-info">
-                        <h3>أحمد</h3>
-                        <p class="founder-title">مطور ومؤسس IT Guide</p>
-                        
-                        <div class="founder-contact">
-                            <div class="contact-item">
-                                <i class="fas fa-user"></i>
-                                <span>الاسم: <strong>أحمداحمد العقاب خريج جامعة القلم</strong></span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-id-card"></i>
-                                <span>الدور: <strong>مؤسس ومطور المنصة</strong></span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-graduation-cap"></i>
-                                <span>التخصص: <strong>تطوير الويب والبرمجيات</strong></span>
-                            </div>
-                            <div class="contact-item">
-                                <i class="fas fa-heart"></i>
-                                <span>الاهتمامات: <strong>التعليم التقني، تطوير المجتمعات</strong></span>
-                            </div>
-                        </div>
-                        
-                        <div class="founder-bio">
-                            <h4>نبذة عني:</h4>
-                            <p>
-                                أنا أحمد، طالب/مطور شغوف بالتقنية والتعليم. قمت بإنشاء IT Guide لأنني أؤمن 
-                                بأهمية التعلم العملي والمشاركة المجتمعية في تطوير المهارات التقنية.
-                            </p>
-                            <p>
-                                هدفي هو مساعدة الطلاب العرب على تطوير مهاراتهم البرمجية وبناء مشاريع حقيقية 
-                                تعزز من فرصهم الوظيفية وتطور المجتمع التقني العربي.
-                            </p>
-                        </div>
+                        <h3>أحمد محمد العقاب</h3>
+                        <p>مطور ومؤسس IT Guide</p>
+                        <p style="margin-top: 1rem;">طالب شغوف بالتقنية والتعليم، قمت بإنشاء IT Guide لأنني أؤمن بأهمية التعلم العملي والمشاركة المجتمعية في تطوير المهارات التقنية.</p>
+                        <p style="margin-top: 0.5rem;">هدفي هو مساعدة الطلاب العرب على تطوير مهاراتهم البرمجية وبناء مشاريع حقيقية تعزز من فرصهم الوظيفية وتطور المجتمع التقني العربي.</p>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <!-- قيمنا -->
-        <section class="values-section">
-            <div class="container">
-                <h2 class="section-title">قيمنا الأساسية</h2>
-                
+            <div class="about-card">
+                <h2 style="text-align: center;">قيمنا الأساسية</h2>
                 <div class="values-grid">
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-share-alt"></i>
-                        </div>
-                        <h3>المشاركة</h3>
-                        <p>نؤمن بقوة المشاركة في نقل المعرفة وتطوير المهارات</p>
-                    </div>
-                    
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-hands-helping"></i>
-                        </div>
-                        <h3>التعاون</h3>
-                        <p>نعمل معاً كفريق لتحقيق الأهداف المشتركة</p>
-                    </div>
-                    
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-lightbulb"></i>
-                        </div>
-                        <h3>الإبداع</h3>
-                        <p>نشجع التفكير الإبداعي والابتكار في الحلول</p>
-                    </div>
-                    
-                    <div class="value-card">
-                        <div class="value-icon">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <h3>التعلم المستمر</h3>
-                        <p>نسعى دوماً للتطوير والتعلم من التجارب</p>
-                    </div>
+                    <div class="value-card"><i class="fas fa-share-alt"></i><h3>المشاركة</h3><p>نؤمن بقوة المشاركة في نقل المعرفة</p></div>
+                    <div class="value-card"><i class="fas fa-hands-helping"></i><h3>التعاون</h3><p>نعمل معاً كفريق لتحقيق الأهداف</p></div>
+                    <div class="value-card"><i class="fas fa-lightbulb"></i><h3>الإبداع</h3><p>نشجع التفكير الإبداعي والابتكار</p></div>
+                    <div class="value-card"><i class="fas fa-graduation-cap"></i><h3>التعلم المستمر</h3><p>نسعى دوماً للتطوير والتعلم</p></div>
                 </div>
             </div>
-        </section>
 
-        <!-- إحصائيات -->
-        <section class="stats-section">
-            <div class="container">
-                <h2 class="section-title">إحصائيات المنصة</h2>
-                
-                <div class="stats-grid">
-                    <div class="stat-card">
-                        <i class="fas fa-project-diagram"></i>
-                        <h3>150+</h3>
-                        <p>مشروع مرفوع</p>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <i class="fas fa-users"></i>
-                        <h3>500+</h3>
-                        <p>طالب مستفيد</p>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <i class="fas fa-download"></i>
-                        <h3>2000+</h3>
-                        <p>تحميل للمشاريع</p>
-                    </div>
-                    
-                    <div class="stat-card">
-                        <i class="fas fa-comments"></i>
-                        <h3>750+</h3>
-                        <p>تعليق وتقييم</p>
-                    </div>
+            <div class="about-card">
+                <h2 style="text-align: center;">📞 تواصل معنا</h2>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" id="contactName" placeholder="اسمك" required>
+                        <input type="email" id="contactEmail" placeholder="بريدك الإلكتروني" required>
+                        <input type="text" id="contactSubject" placeholder="الموضوع" required>
+                        <textarea id="contactMessage" rows="4" placeholder="رسالتك..." required></textarea>
+                        <button type="submit" class="btn btn-primary" style="width:100%"><i class="fas fa-paper-plane"></i> إرسال الرسالة</button>
+                    </form>
+                    <p style="text-align: center; margin-top: 1rem;">أو تواصل عبر البريد: <strong>ahmed@itguide.com</strong> | الهاتف: <strong>778017910</strong></p>
                 </div>
             </div>
-        </section>
 
-        <!-- تواصل معنا -->
-        <section class="contact-section">
-            <div class="container">
-                <h2 class="section-title">تواصل معنا</h2>
-                
-                <div class="contact-content">
-                    <div class="contact-info">
-                        <h3>نحب نسمع منكم!</h3>
-                        <p>لأي استفسار أو مقترح، لا تتردد في التواصل معنا:</p>
-                        
-                        <div class="contact-methods">
-                            <div class="method">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <h4>البريد الإلكتروني</h4>
-                                    <p>ahmed@itguide.com</p>
-                                </div>
-                            </div>
-                            
-                            <div class="method">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <h4>رقم الهاتف</h4>
-                                    <p>778017910</p>
-                                </div>
-                            </div>
-                            
-                            <div class="method">
-                                <i class="fab fa-twitter"></i>
-                                <div>
-                                    <h4>تويتر</h4>
-                                    <p>@ITGuide_SA</p>
-                                </div>
-                            </div>
-                            
-                            <div class="method">
-                                <i class="fab fa-github"></i>
-                                <div>
-                                    <h4>GitHub</h4>
-                                    <p>github.com/ITGuide</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-form">
-                        <h3>أرسل رسالة</h3>
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <input type="text" placeholder="اسمك" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="email" placeholder="بريدك الإلكتروني" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="text" placeholder="الموضوع" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <textarea placeholder="رسالتك..." rows="5" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i> إرسال الرسالة
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- الأسئلة الشائعة -->
-        <section class="faq-section">
-            <div class="container">
-                <h2 class="section-title">أسئلة شائعة</h2>
-                
+            <div class="about-card">
+                <h2 style="text-align: center;">❓ أسئلة شائعة</h2>
                 <div class="faq-list">
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>هل المنصة مجانية؟</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>نعم، المنصة مجانية بالكامل لجميع الطلاب ولا توجد أي رسوم للاستخدام.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>من يمكنه رفع المشاريع؟</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>أي طالب جامعي أو طالب تقنية يمكنه رفع مشاريعه بعد التسجيل في المنصة.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>هل يمكنني تعديل مشروعي بعد رفعه؟</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>نعم، يمكنك تعديل مشروعك في أي وقت من خلال لوحة التحكم.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="faq-item">
-                        <button class="faq-question">
-                            <span>كيف أبدأ في استخدام المنصة؟</span>
-                            <i class="fas fa-chevron-down"></i>
-                        </button>
-                        <div class="faq-answer">
-                            <p>ببساطة انشئ حساباً، ثم ابدأ بتصفح المشاريع أو رفع مشروعك الأول.</p>
-                        </div>
-                    </div>
+                    <div class="faq-item"><button class="faq-question">ما هي المنصة؟ <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>منصة طلابية لمشاركة المشاريع التقنية والتعلم المشترك.</p></div></div>
+                    <div class="faq-item"><button class="faq-question">هل المنصة مجانية؟ <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>نعم، المنصة مجانية بالكامل لجميع الطلاب.</p></div></div>
+                    <div class="faq-item"><button class="faq-question">كيف أرفع مشروعي؟ <i class="fas fa-chevron-down"></i></button><div class="faq-answer"><p>اضغط على زر "رفع مشروع" في القائمة واملأ النموذج.</p></div></div>
                 </div>
             </div>
-        </section>
+        </div>
     </main>
 
-    <!-- الفوتر -->
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-section">
-                    <h3><i class="fas fa-code"></i> IT Guide</h3>
-                    <p>منصة طلابية لمشاركة المشاريع التقنية والتعلم المشترك</p>
-                    <p class="founder-credit">مؤسس المنصة: <strong>أحمداحمد محمد العقاب</strong></p>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>روابط سريعة</h4>
-                    <ul>
-                        <li><a href="index.html">الرئيسية</a></li>
-                        <li><a href="projects.html">المشاريع</a></li>
-                        <li><a href="upload.html">رفع مشروع</a></li>
-                        <li><a href="about.html">عن المنصة</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-section">
-                    <h4>تواصل معنا</h4>
-                    <ul>
-                        <li><a href="mailto:ahmed@itguide.com">ahmed@itguide.com</a></li>
-                        <li><a href="tel:+966501234567">778017910</a></li>
-                        <li><a href="#">تويتر</a></li>
-                        <li><a href="#">انستقرام</a></li>
-                    </ul>
-                </div>
+                <div class="footer-section"><h3>IT Guide</h3><p>منصة مشاريع الطلاب</p><p>مؤسس المنصة: <strong>أحمد محمد العقاب</strong></p></div>
             </div>
-            
-            <div class="footer-bottom">
-                <p>© 2026 جميع الحقوق محفوظة | مؤسس المنصة: أحمد</p>
-                <p class="made-with">
-                    صنع بكل ❤️ لخدمة طلاب التقنية
-                </p>
-            </div>
+            <div class="footer-bottom"><p>© 2026 IT Guide - جميع الحقوق محفوظة</p></div>
         </div>
     </footer>
 
-    <!-- JavaScript -->
     <script src="js/about.js"></script>
-    <script src="js/main.js"></script>
 </body>
 </html>
