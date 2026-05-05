@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل المشروع - IT Guide | معاينة مشروع طلابي</title>
+    
+    <!-- SEO -->
+    <meta name="description" content="معاينة مشروع طلابي تفصيلية مع الكود المصدري، الشرح، التقنيات المستخدمة وإمكانية التحميل">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/project-detail.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Highlight.js للكتابة البرمجية -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+</head>
+<body>
+    <!-- الهيدر -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <a href="index.html">
+                        <i class="fas fa-code"></i>
+                        <span>IT Guide</span>
+                    </a>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="projects.html">المشاريع</a></li>
+                    <li><a href="upload.html">رفع مشروع</a></li>
+                    <li><a href="about.html">عن المنصة</a></li>
+                </ul>
+                
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- محتوى الصفحة -->
+    <main class="project-detail-page">
+        <!-- ترويسة المشروع -->
+        <section class="project-header">
+            <div class="container">
+                <!-- شريط التنقل داخل الصفحة -->
+                <nav class="breadcrumb">
+                    <a href="index.html"><i class="fas fa-home"></i> الرئيسية</a>
+                    <i class="fas fa-chevron-left"></i>
+                    <a href="projects.html">المشاريع</a>
+                    <i class="fas fa-chevron-left"></i>
+                    <span id="projectTitle">تفاصيل المشروع</span>
+                </nav>
+                
+                <!-- معلومات المشروع الرئيسية -->
+                <div class="project-meta">
+                    <div class="project-badge">
+                        <span class="level-badge" id="projectLevel">مستوى أول</span>
+                        <span class="category-badge" id="projectCategory">برمجة الويب</span>
+                    </div>
+                    
+                    <div class="project-actions">
+                        <button class="btn btn-primary" id="downloadBtn">
+                            <i class="fas fa-download"></i> تحميل المشروع
+                        </button>
+                        <button class="btn btn-secondary" id="likeBtn">
+                            <i class="far fa-heart"></i> أعجبني
+                            <span class="count" id="likeCount">0</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- عنوان المشروع -->
+                <h1 id="projectMainTitle">اسم المشروع</h1>
+                
+                <!-- إحصائيات المشروع -->
+                <div class="project-stats-overview">
+                    <div class="stat">
+                        <i class="fas fa-eye"></i>
+                        <div>
+                            <span class="number" id="viewCount">0</span>
+                            <span class="label">مشاهدة</span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-download"></i>
+                        <div>
+                            <span class="number" id="downloadCount">0</span>
+                            <span class="label">تحميل</span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-calendar-alt"></i>
+                        <div>
+                            <span class="number" id="projectDate">2024</span>
+                            <span class="label">تاريخ الرفع</span>
+                        </div>
+                    </div>
+                    <div class="stat">
+                        <i class="fas fa-user"></i>
+                        <div>
+                            <span class="number" id="projectAuthor">طالب</span>
+                            <span class="label">الرافع</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- المحتوى الرئيسي -->
+        <div class="container main-content">
+            <div class="content-wrapper">
+                <!-- المحتوى الأيسر (الرئيسي) -->
+                <div class="main-content-area">
+                    <!-- وصف المشروع -->
+                    <section class="project-description">
+                        <h2><i class="fas fa-align-left"></i> وصف المشروع</h2>
+                        <div class="description-content" id="projectDescription">
+                            جاري تحميل وصف المشروع...
+                        </div>
+                    </section>
+
+                    <!-- معاينة الكود -->
+                    <section class="code-preview">
+                        <div class="section-header">
+                            <h2><i class="fas fa-code"></i> معاينة الكود</h2>
+                            <div class="code-actions">
+                                <select id="fileSelector">
+                                    <option value="">اختر ملفاً للمعاينة</option>
+                                </select>
+                                <button class="btn btn-secondary" id="copyCodeBtn">
+                                    <i class="far fa-copy"></i> نسخ الكود
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="code-container">
+                            <pre><code class="language-html" id="codePreview">// اختر ملفاً لعرض الكود</code></pre>
+                        </div>
+                        
+                        <div class="code-info">
+                            <span id="currentFile">لم يتم اختيار ملف</span>
+                            <span id="fileSize">0 KB</span>
+                        </div>
+                    </section>
+
+                    <!-- التقنيات المستخدمة -->
+                    <section class="technologies-section">
+                        <h2><i class="fas fa-cogs"></i> التقنيات المستخدمة</h2>
+                        <div class="tech-tags" id="techTags">
+                            <!-- التقنيات تضاف هنا -->
+                        </div>
+                        
+                        <div class="tech-details">
+                            <h3>تفاصيل التقنيات:</h3>
+                            <div class="tech-grid" id="techDetails">
+                                <!-- تفاصيل التقنيات تضاف هنا -->
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- التعليقات والتقييمات -->
+                    <section class="comments-section">
+                        <div class="section-header">
+                            <h2><i class="fas fa-comments"></i> التعليقات والتقييمات</h2>
+                            <div class="rating-overview">
+                                <div class="avg-rating">
+                                    <span class="rating-stars">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                    </span>
+                                    <span class="rating-number" id="avgRating">4.0</span>
+                                    <span class="rating-count">(<span id="ratingCount">0</span> تقييم)</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- نموذج إضافة تعليق -->
+                        <div class="add-comment">
+                            <h3>أضف تعليقك</h3>
+                            <form id="commentForm">
+                                <div class="rating-input">
+                                    <span>تقييمك:</span>
+                                    <div class="stars-rating" id="starsRating">
+                                        <i class="far fa-star" data-rating="1"></i>
+                                        <i class="far fa-star" data-rating="2"></i>
+                                        <i class="far fa-star" data-rating="3"></i>
+                                        <i class="far fa-star" data-rating="4"></i>
+                                        <i class="far fa-star" data-rating="5"></i>
+                                    </div>
+                                    <input type="hidden" id="userRating" value="0">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <textarea id="commentText" placeholder="اكتب تعليقك هنا..." rows="4" required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <input type="text" id="commenterName" placeholder="اسمك (اختياري)">
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-paper-plane"></i> نشر التعليق
+                                </button>
+                            </form>
+                        </div>
+                        
+                        <!-- قائمة التعليقات -->
+                        <div class="comments-list" id="commentsList">
+                            <!-- التعليقات تضاف هنا -->
+                            <div class="no-comments">
+                                <i class="fas fa-comment-slash"></i>
+                                <p>لا توجد تعليقات بعد. كن أول من يعلق!</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                
+                <!-- المحتوى الأيمن (الجانبي) -->
+                <aside class="sidebar">
+                    <!-- معلومات سريعة -->
+                    <div class="quick-info">
+                        <h3><i class="fas fa-info-circle"></i> معلومات سريعة</h3>
+                        <ul>
+                            <li>
+                                <i class="fas fa-layer-group"></i>
+                                <span>المستوى:</span>
+                                <strong id="quickLevel">مستوى أول</strong>
+                            </li>
+                            <li>
+                                <i class="fas fa-tag"></i>
+                                <span>التصنيف:</span>
+                                <strong id="quickCategory">ويب</strong>
+                            </li>
+                            <li>
+                                <i class="fas fa-code-branch"></i>
+                                <span>عدد الملفات:</span>
+                                <strong id="fileCount">0</strong>
+                            </li>
+                            <li>
+                                <i class="fas fa-database"></i>
+                                <span>حجم المشروع:</span>
+                                <strong id="projectSize">0 MB</strong>
+                            </li>
+                            <li>
+                                <i class="fas fa-calendar"></i>
+                                <span>آخر تحديث:</span>
+                                <strong id="lastUpdate">2024</strong>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <!-- روابط المشروع -->
+                    <div class="project-links">
+                        <h3><i class="fas fa-external-link-alt"></i> روابط المشروع</h3>
+                        <div class="links">
+                            <a href="#" class="link-btn" id="liveDemoBtn" target="_blank">
+                                <i class="fas fa-globe"></i>
+                                <span>العرض الحي</span>
+                            </a>
+                            <a href="#" class="link-btn" id="githubBtn" target="_blank">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <button class="link-btn" id="shareBtn">
+                                <i class="fas fa-share-alt"></i>
+                                <span>مشاركة</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- مشاريع مشابهة -->
+                    <div class="related-projects">
+                        <h3><i class="fas fa-project-diagram"></i> مشاريع مشابهة</h3>
+                        <div class="related-list" id="relatedProjects">
+                            <!-- المشاريع المشابهة تضاف هنا -->
+                        </div>
+                    </div>
+                    
+                    <!-- تعليمات التحميل -->
+                    <div class="download-instructions">
+                        <h3><i class="fas fa-download"></i> كيفية التحميل والتشغيل</h3>
+                        <ol>
+                            <li>انقر على زر "تحميل المشروع"</li>
+                            <li>فك ضغط الملف الذي تم تنزيله</li>
+                            <li>افتح ملف index.html في المتصفح</li>
+                            <li>اتبع تعليمات ملف README</li>
+                        </ol>
+                    </div>
+                </aside>
+            </div>
+        </div>
+
+        <!-- نموذج المشاركة -->
+        <div class="share-modal" id="shareModal">
+            <div class="modal-overlay" onclick="closeShareModal()"></div>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3><i class="fas fa-share-alt"></i> مشاركة المشروع</h3>
+                    <button class="modal-close" onclick="closeShareModal()">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="share-options">
+                        <button class="share-option" onclick="shareOnSocial('facebook')">
+                            <i class="fab fa-facebook"></i>
+                            <span>فيسبوك</span>
+                        </button>
+                        <button class="share-option" onclick="shareOnSocial('twitter')">
+                            <i class="fab fa-twitter"></i>
+                            <span>تويتر</span>
+                        </button>
+                        <button class="share-option" onclick="shareOnSocial('linkedin')">
+                            <i class="fab fa-linkedin"></i>
+                            <span>لينكدإن</span>
+                        </button>
+                        <button class="share-option" onclick="copyShareLink()">
+                            <i class="fas fa-link"></i>
+                            <span>نسخ الرابط</span>
+                        </button>
+                    </div>
+                    
+                    <div class="share-link">
+                        <input type="text" id="shareLinkInput" readonly value="جاري تحميل الرابط...">
+                        <button class="btn btn-secondary" onclick="copyShareLink()">
+                            <i class="far fa-copy"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- الفوتر -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3><i class="fas fa-code"></i> IT Guide</h3>
+                    <p>منصة طلابية لمشاركة المشاريع التقنية والتعلم المشترك</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>تصفح</h4>
+                    <ul>
+                        <li><a href="projects.html?level=1">مستوى أول</a></li>
+                        <li><a href="projects.html?level=2">مستوى ثاني</a></li>
+                        <li><a href="projects.html?level=3">مستوى ثالث</a></li>
+                        <li><a href="projects.html?level=4">مشاريع تخرج</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>مساعدة</h4>
+                    <ul>
+                        <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                        <li><a href="guidelines.html">دليل الرفع</a></li>
+                        <li><a href="contact.html">الدعم الفني</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2024 IT Guide - جميع الحقوق محفوظة</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/data.js"></script>
+    <script src="js/project-detail.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- تهيئة Highlight.js -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            hljs.highlightAll();
+        });
+    </script>
+    <script>
+// رابط للعودة للمشاريع
+document.addEventListener('DOMContentLoaded', function() {
+    // زر للعودة
+    const backBtn = document.createElement('a');
+    backBtn.href = 'projects.html';
+    backBtn.className = 'btn btn-secondary';
+    backBtn.innerHTML = '<i class="fas fa-arrow-right"></i> العودة للمشاريع';
+    backBtn.style.margin = '20px auto';
+    backBtn.style.display = 'block';
+    backBtn.style.width = 'fit-content';
+    
+    // أضفه قبل الفوتر
+    document.querySelector('footer').before(backBtn);
+});
+</script>
+</body>
+</html>
